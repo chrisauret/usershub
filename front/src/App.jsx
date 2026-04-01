@@ -50,7 +50,7 @@ export default function App() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Form — left column */}
           <div className="lg:col-span-1">
-            {/* <PersonForm onSaved={fetchPeople} /> */}
+            <PersonForm onSaved={fetchPeople} />
           </div>
 
           {/* Table — right columns */}
