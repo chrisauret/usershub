@@ -1,31 +1,31 @@
-import { useState } from 'react';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
-import { UserPlus } from 'lucide-react';
-import { createPerson } from '../lib/api';
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { UserPlus } from "lucide-react";
+import { createPerson } from "../lib/api";
 
-const emptyForm = { name: '', dob: '', address: '' };
+const emptyForm = { name: "", dob: "", address: "" };
 
 export function PersonForm({ onSaved }) {
   const [form, setForm] = useState(emptyForm);
   const [saving, setSaving] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   function handleChange(e) {
-    setForm(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError('');
+    setError("");
     setSaving(true);
     try {
       await createPerson(form);
       setForm(emptyForm);
       onSaved();
     } catch {
-      setError('Something went wrong. Is the backend running?');
+      setError("Something went wrong. Is the backend running?");
     } finally {
       setSaving(false);
     }
@@ -75,24 +75,21 @@ export function PersonForm({ onSaved }) {
           />
         </div>
 
-        {/* LIVE DEMO FIELD — uncomment this block during the demo */}
-        
         <div className="space-y-1.5">
           <Label htmlFor="phone">Phone Number</Label>
           <Input
             id="phone"
             name="phone"
             placeholder="+61 400 000 000"
-            value={form.phone || ''}
+            value={form.phone || ""}
             onChange={handleChange}
           />
         </div>
-       
 
         {error && <p className="text-sm text-red-500">{error}</p>}
 
         <Button type="submit" className="w-full" disabled={saving}>
-          {saving ? 'Saving...' : 'Save Person'}
+          {saving ? "Saving..." : "Save Person"}
         </Button>
       </form>
     </div>

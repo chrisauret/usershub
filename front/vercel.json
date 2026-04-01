@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/people/:path*", "destination": "https://your-railway-app.railway.app/people/:path*" }
+    {
+      "source": "/people/:path*",
+      "destination": "https://incredible-rebirth-production-54df.up.railway.app/people/:path*"
+    }
   ]
 }
