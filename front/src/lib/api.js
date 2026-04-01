@@ -33,15 +33,15 @@ const SAMPLE_PEOPLE = [
   },
 ];
 
-export async function fetchPeople() {
-  return structuredClone(SAMPLE_PEOPLE);
-}
-
 // export async function fetchPeople() {
-//   const res = await fetch(BASE);
-//   if (!res.ok) throw new Error("Failed to fetch people");
-//   return res.json();
+//   return structuredClone(SAMPLE_PEOPLE);
 // }
+
+export async function fetchPeople() {
+  const res = await fetch(BASE);
+  if (!res.ok) throw new Error("Failed to fetch people");
+  return res.json();
+}
 
 export async function createPerson(data) {
   const res = await fetch(BASE, {
