@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/people/:path*", "destination": "https://your-railway-app.railway.app/people/:path*" }
+  ]
+}
